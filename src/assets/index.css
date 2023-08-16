@@ -1,0 +1,23 @@
+@import './styles/reset.css';
+@import './styles/font.css';
+
+:root {
+  --base: 100px;
+}
+/*
+@media (min-width: 2100px) {
+  :root {
+    --base: 5.2vmax;
+  }
+}
+
+@media (min-height: 2100px) {
+  :root {
+    --base: 5.2vmax;
+  }
+}*/
+
+body {
+  min-height: 100vh;
+  background-color: rgb(232, 238, 233);
+}
