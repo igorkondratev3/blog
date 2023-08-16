@@ -47,18 +47,22 @@ body {
   transition: background-color 0.5s linear, color 0.5s linear;
 }
 
-.base-button:enabled:focus-visible,
-.base-button:enabled:hover {
+.base-button:focus-visible,
+.base-button:hover {
   color: white;
   background-color: black;
   outline: none;
 }
 
-.base-button:enabled:active {
+.base-button:active {
   box-shadow: calc(var(--base) * 0.1) calc(var(--base) * 0.05)
     calc(var(--base) * 0.05) gray;
 }
 
 .base-button:disabled {
   opacity: 25%;
+  box-shadow: none;
+  outline: none;
+  color: black;
+  background-color: transparent;
 }

@@ -13,9 +13,13 @@ const router = useRouter();
 
 const createPost = () => {
   const date = new Date();
-  const correctDate = `${date.getFullYear()}-${
+  let correctDate = `${date.getFullYear()}-${
     date.getMonth() + 1
   }-${date.getDate()}`;
+  correctDate = correctDate
+    .split("-")
+    .map((dateP) => (dateP.length === 1 ? "0" + dateP : dateP))
+    .join("-");
 
   const post = {
     title: title.value,

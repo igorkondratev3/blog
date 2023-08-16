@@ -2,6 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import StartPage from "../pages/StartPage.vue";
 import CreatePost from "../pages/CreatePost.vue";
+import PostPage from "../pages/PostPage.vue";
 
 Vue.use(VueRouter);
 
@@ -18,6 +19,12 @@ const router = new VueRouter({
       path: "/create-post",
       name: "createPost",
       component: CreatePost,
+    },
+    {
+      path: "/post/:id",
+      name: "postPage",
+      component: PostPage,
+      props: true,
     },
     /*{
       path: '/about',
