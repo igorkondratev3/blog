@@ -1,6 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-//import HomeView from '../views/HomeView.vue'
+import StartPage from "../pages/StartPage.vue";
+import CreatePost from "../pages/CreatePost.vue";
 
 Vue.use(VueRouter);
 
@@ -8,12 +9,17 @@ const router = new VueRouter({
   mode: "history",
   base: import.meta.env.BASE_URL,
   routes: [
-    /* {
-      path: '/',
-      name: 'home',
-      component: HomeView
+    {
+      path: "/",
+      name: "startPage",
+      component: StartPage,
     },
     {
+      path: "/create-post",
+      name: "createPost",
+      component: CreatePost,
+    },
+    /*{
       path: '/about',
       name: 'about',
       // route level code-splitting
