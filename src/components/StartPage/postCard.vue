@@ -83,7 +83,7 @@ defineProps({
 .post-card__short-description {
   overflow-wrap: anywhere;
   word-break: break-all;
-  white-space: pre-wrap;
+  white-space: pre-line;
 }
 
 .post-card__info {

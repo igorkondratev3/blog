@@ -13,7 +13,7 @@ const posts = JSON.parse(localStorage.getItem("posts"));
         v-for="(post, index) in posts.toReversed()"
         :key="`${index} post`"
         :post="post"
-        :postId="index"
+        :postId="posts.length - index - 1"
       />
     </main>
   </div>
