@@ -6,7 +6,7 @@ const posts = JSON.parse(localStorage.getItem("posts"));
 </script>
 
 <template>
-  <div class="page start-page">
+  <div class="start-page page">
     <StartPageHeader />
     <main class="posts">
       <PostCard
@@ -26,7 +26,7 @@ const posts = JSON.parse(localStorage.getItem("posts"));
 .posts {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: 32px;
 }
 </style>

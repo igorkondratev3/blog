@@ -7,12 +7,13 @@ defineEmits(["input"]);
 </script>
 
 <template>
-  <label class="label-post">
-    Полное описание
+  <label class="short-post-description">
+    <h5 class="short-post-description__header">Краткое описание</h5>
     <textarea
+      class="short-post-description__value"
+      maxlength="100"
+      required
       v-bind="$attrs"
-      class="full-post"
-      maxlength="255"
       :value="value"
       @input="$emit('input', $event.target.value)"
     ></textarea>
@@ -20,13 +21,17 @@ defineEmits(["input"]);
 </template>
 
 <style>
-.full-post {
-  width: calc(var(--base) * 7.5);
-  height: calc(var(--base) * 3);
-  max-width: 100%;
-  max-height: calc(var(--base) * 5);
+.short-post-description__header {
+  display: flex;
+  flex-direction: column;
+}
+
+.short-post-description__value {
+  max-width: calc(var(--base) * 7.5);
+  min-width: calc(var(--base) * 7.5);
+  height: calc(var(--base) * 1.2);
+  max-height: calc(var(--base) * 2);
   padding: calc(var(--base) * 0.08);
-  outline: none;
   border: calc(var(--base) * 0.01) solid transparent;
   border-radius: calc(var(--base) * 0.04);
   font: inherit;
@@ -34,12 +39,7 @@ defineEmits(["input"]);
   color: inherit;
   background-color: white;
 }
-.full-post:focus-visible {
+.short-post-description__value:focus-visible {
   outline: calc(var(--base) * 0.01) solid black;
-}
-
-.label-post {
-  display: flex;
-  flex-direction: column;
 }
 </style>

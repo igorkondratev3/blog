@@ -1,9 +1,9 @@
 <script setup>
 import { ref, computed } from "vue";
 import { useRouter } from "vue-router/composables";
-import FullDescription from "@/components/CreatePost/postCreationForm/inputs/fullDescription.vue";
-import ShortDescription from "@/components/CreatePost/postCreationForm/inputs/shortDescription.vue";
-import TitleInput from "@/components/CreatePost/postCreationForm/inputs/titleInput.vue";
+import FullDescription from "@/components/CreatePost/postCreationForm/formFields/fullDescription.vue";
+import ShortDescription from "@/components/CreatePost/postCreationForm/formFields/shortDescription.vue";
+import TitleInput from "@/components/CreatePost/postCreationForm/formFields/titleInput.vue";
 
 const props = defineProps({
   id: String,

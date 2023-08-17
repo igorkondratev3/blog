@@ -7,26 +7,28 @@ defineEmits(["input"]);
 </script>
 
 <template>
-  <label class="label-post">
-    Краткое описание
-    {{ value }}
-    <textarea
-      v-bind="$attrs"
-      class="short-post"
-      maxlength="100"
+  <label class="post-title">
+    <h5 class="post-title__header">Заголовок</h5>
+    <input
+      type="text"
+      class="post-title__value"
+      maxlength="50"
       required
+      v-bind="$attrs"
       :value="value"
       @input="$emit('input', $event.target.value)"
-    ></textarea>
+    />
   </label>
 </template>
 
 <style>
-.short-post {
+.post-title {
+  display: flex;
+  flex-direction: column;
+}
+
+.post-title__value {
   width: calc(var(--base) * 7.5);
-  height: calc(var(--base) * 1.2);
-  max-width: 100%;
-  max-height: calc(var(--base) * 2);
   padding: calc(var(--base) * 0.08);
   outline: none;
   border: calc(var(--base) * 0.01) solid transparent;
@@ -36,12 +38,7 @@ defineEmits(["input"]);
   color: inherit;
   background-color: white;
 }
-.short-post:focus-visible {
+.post-title__value:focus-visible {
   outline: calc(var(--base) * 0.01) solid black;
-}
-
-.label-post {
-  display: flex;
-  flex-direction: column;
 }
 </style>

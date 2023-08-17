@@ -1,9 +1,17 @@
 <script setup>
-import PostCreationForm from '@/components/CreatePost/postCreationForm/postCreationForm.vue';
+import PostCreationForm from "@/components/CreatePost/postCreationForm/postCreationForm.vue";
+import TheHeader from "@/components/common/TheHeader.vue";
 </script>
 
 <template>
-  <div class="page"><PostCreationForm /></div>
+  <div class="create-post page">
+    <TheHeader header="Создание записи" />
+    <PostCreationForm />
+  </div>
 </template>
 
-<style></style>
+<style>
+.create-post {
+  gap: 64px;
+}
+</style>

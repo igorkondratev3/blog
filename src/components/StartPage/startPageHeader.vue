@@ -3,8 +3,8 @@ import { RouterLink } from "vue-router";
 </script>
 
 <template>
-  <header class="start-page__header">
-    <h1>Мини-блог</h1>
+  <header class="start-page__header header">
+    <h1 class="header__value">Мини-блог</h1>
     <RouterLink to="/create-post" class="create-post-link base-button">
       Создать запись
     </RouterLink>

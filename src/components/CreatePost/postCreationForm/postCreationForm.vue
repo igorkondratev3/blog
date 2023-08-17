@@ -1,59 +1,24 @@
 <script setup>
-import TitleInput from "./inputs/titleInput.vue";
-import ShortDescription from "./inputs/shortDescription.vue";
-import FullDescription from "./inputs/fullDescription.vue";
-import { ref, computed } from "vue";
+import TitleInput from "./formFields/titleInput.vue";
+import ShortDescription from "./formFields/shortDescription.vue";
+import FullDescription from "./formFields/fullDescription.vue";
 import { useRouter } from "vue-router/composables";
-
-const title = ref("");
-const shortDescription = ref("");
-const fullDescription = ref("");
+import { usePostData } from "./postData.js";
+import { createPost } from "./helpers.js";
 
 const router = useRouter();
-
-const createPost = () => {
-  const date = new Date();
-  let correctDate = `${date.getFullYear()}-${
-    date.getMonth() + 1
-  }-${date.getDate()}`;
-  correctDate = correctDate
-    .split("-")
-    .map((dateP) => (dateP.length === 1 ? "0" + dateP : dateP))
-    .join("-");
-
-  const post = {
-    title: title.value,
-    shortDescription: shortDescription.value,
-    fullDescription: fullDescription.value,
-    date: correctDate,
-    comments: [],
-  };
-
-  let posts = JSON.parse(localStorage.getItem("posts"));
-  posts ? posts.push(post) : (posts = [post]);
-  localStorage.setItem("posts", JSON.stringify(posts));
-  router.push("/");
-};
-
-const isCorrectData = computed(
-  () =>
-    Boolean(title.value) &&
-    Boolean(shortDescription.value) &&
-    title.value.length <= 50 &&
-    shortDescription.value.length <= 100 &&
-    fullDescription.value.length <= 255
-);
+const { postData, isCorrectPostData } = usePostData();
 </script>
 
 <template>
-  <form class="form">
-    <TitleInput v-model="title" />
-    <ShortDescription v-model="shortDescription" />
-    <FullDescription v-model="fullDescription" />
+  <form class="post-creation-form">
+    <TitleInput v-model="postData.title.value" />
+    <ShortDescription v-model="postData.shortDescription.value" />
+    <FullDescription v-model="postData.fullDescription.value" />
     <button
-      class="base-button create-post-button"
-      @click.prevent="createPost"
-      :disabled="!isCorrectData"
+      class="create-post-button base-button"
+      @click.prevent="createPost(postData, router)"
+      :disabled="!isCorrectPostData"
     >
       Создать запись
     </button>
@@ -61,7 +26,7 @@ const isCorrectData = computed(
 </template>
 
 <style>
-.form {
+.post-creation-form {
   display: flex;
   flex-direction: column;
   justify-content: center;

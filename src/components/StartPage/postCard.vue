@@ -33,14 +33,19 @@ defineProps({
   height: 300px;
   color: inherit;
   text-decoration: none;
+  transition: transform 0.2s linear;
+}
+
+.post-link:hover {
+  transform: scale(1.03);
 }
 
 .post-card {
-  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   gap: 16px;
+  height: 100%;
   border: 1px solid black;
   border-radius: 16px;
   padding: 16px;
