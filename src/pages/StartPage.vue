@@ -1,17 +1,17 @@
 <script setup>
-import TheHeader from "../components/StartPage/TheHeader.vue";
-import PostCard from "../components/PostPage/postCard.vue";
+import StartPageHeader from "../components/StartPage/startPageHeader.vue";
+import PostCard from "../components/StartPage/postCard.vue";
 
 const posts = JSON.parse(localStorage.getItem("posts"));
 </script>
 
 <template>
   <div class="page start-page">
-    <TheHeader />
-    <main class="cards">
+    <StartPageHeader />
+    <main class="posts">
       <PostCard
-        v-for="(post, index) in posts"
-        :key="`${index}post`"
+        v-for="(post, index) in posts.toReversed()"
+        :key="`${index} post`"
         :post="post"
         :postId="index"
       />
@@ -22,12 +22,10 @@ const posts = JSON.parse(localStorage.getItem("posts"));
 <style>
 .start-page {
   gap: 32px;
-  align-items: flex-start;
 }
-.cards {
+.posts {
   display: flex;
   flex-wrap: wrap;
-  align-self: center;
   justify-content: space-between;
   gap: 32px;
 }

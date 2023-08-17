@@ -78,7 +78,6 @@ const isCorrectEdit = computed(
     post.value.fullDescription.length <= 255
 );
 
-
 const editPost = () => {
   const date = new Date();
   let correctDate = `${date.getFullYear()}-${
