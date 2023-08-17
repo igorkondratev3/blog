@@ -34,7 +34,7 @@ defineEmits(["input"]);
   color: inherit;
   background-color: white;
 }
-.title-post:focus-visible {
+.full-post:focus-visible {
   outline: calc(var(--base) * 0.01) solid black;
 }
 
