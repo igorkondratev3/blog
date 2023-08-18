@@ -23,6 +23,7 @@ export const useCommentData = () => {
     () =>
       commentData.userName.value.trim().length > 0 &&
       commentData.userName.value.length <= 50 &&
+      commentData.userEmail.value.length <= 50 &&
       commentData.comment.value.trim().length > 0 &&
       commentData.comment.value.length <= 255
   );

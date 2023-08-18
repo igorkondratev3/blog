@@ -36,11 +36,18 @@ const posts = JSON.parse(localStorage.getItem("posts"));
   align-self: center;
   margin-top: calc(var(--base) * 0.64);
   font-size: calc(var(--base) * 0.8);
+  text-align: center;
 }
 
 @media (max-width: 1355px) {
   .posts {
     justify-content: space-around;
+  }
+}
+
+@media (max-width: 450px) {
+  .start-page__empty {
+    font-size: calc(var(--base) * 0.48);
   }
 }
 </style>
