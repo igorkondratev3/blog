@@ -1,0 +1,1 @@
+System.register([],(function(t,n){"use strict";return{execute:function(){t("n",(function(t){return t.split("-").toReversed().join("-")})),t("g",(function(){var t=new Date;return"".concat(t.getFullYear(),"-").concat(t.getMonth()+1,"-").concat(t.getDate()).split("-").map((function(t){return 1===t.length?"0"+t:t})).join("-")}))}}}));

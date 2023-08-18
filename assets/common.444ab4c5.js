@@ -1,0 +1,1 @@
+const a=t=>t.split("-").toReversed().join("-"),r=()=>{const t=new Date;return`${t.getFullYear()}-${t.getMonth()+1}-${t.getDate()}`.split("-").map(e=>e.length===1?"0"+e:e).join("-")};export{r as g,a as n};
