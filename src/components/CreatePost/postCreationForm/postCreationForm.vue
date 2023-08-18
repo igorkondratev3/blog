@@ -12,9 +12,15 @@ const { postData, isCorrectPostData } = usePostData();
 
 <template>
   <form class="post-creation-form">
-    <TitleInput v-model="postData.title.value" />
-    <ShortDescription v-model="postData.shortDescription.value" />
-    <FullDescription v-model="postData.fullDescription.value" />
+    <TitleInput v-model="postData.title.value" :maxlength="50" />
+    <ShortDescription
+      v-model="postData.shortDescription.value"
+      :maxlength="100"
+    />
+    <FullDescription
+      v-model="postData.fullDescription.value"
+      :maxlength="255"
+    />
     <button
       class="create-post-button base-button"
       @click.prevent="createPost(postData, router)"
@@ -32,6 +38,6 @@ const { postData, isCorrectPostData } = usePostData();
   justify-content: center;
   align-items: flex-start;
   align-self: center;
-  gap: 16px;
+  gap: calc(var(--base) * 0.16);
 }
 </style>

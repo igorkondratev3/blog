@@ -21,9 +21,9 @@ export const useCommentData = () => {
 
   const isCorrectCommentData = computed(
     () =>
-      commentData.userName.value.length > 0 &&
+      commentData.userName.value.trim().length > 0 &&
       commentData.userName.value.length <= 50 &&
-      commentData.comment.value.length > 0 &&
+      commentData.comment.value.trim().length > 0 &&
       commentData.comment.value.length <= 255
   );
 

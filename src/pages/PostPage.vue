@@ -1,12 +1,12 @@
 <script setup>
-import { useRouter } from "vue-router/composables";
 import FullDescription from "@/components/CreatePost/postCreationForm/formFields/fullDescription.vue";
 import ShortDescription from "@/components/CreatePost/postCreationForm/formFields/shortDescription.vue";
 import TitleInput from "@/components/CreatePost/postCreationForm/formFields/titleInput.vue";
 import TheHeader from "@/components/common/TheHeader.vue";
 import CommentCreationForm from "@/components/PostPage/comments/creationForm/commentCreationForm.vue";
 import CommentsContent from "@/components/PostPage/comments/content/commentsContent.vue";
-import { usePostData } from "@/components/PostPage/postData.js";
+import { useRouter } from "vue-router/composables";
+import { usePostData } from "@/composables/PostPage/postData.js";
 import { normalizeDate } from "@/helpers/common.js";
 
 const props = defineProps({
@@ -25,15 +25,23 @@ const { postData, isCorrectPostData, editMode } = usePostData(props.id);
       <h2 v-if="!editMode" class="post__title">
         {{ postData.post.value.title }}
       </h2>
-      <TitleInput v-else v-model="postData.post.value.title" />
+      <TitleInput v-else v-model="postData.post.value.title" :maxlength="50" />
       <p v-if="!editMode" class="post__short-description">
         {{ postData.post.value.shortDescription }}
       </p>
-      <ShortDescription v-else v-model="postData.post.value.shortDescription" />
+      <ShortDescription
+        v-else
+        v-model="postData.post.value.shortDescription"
+        :maxlength="100"
+      />
       <p v-if="!editMode" class="post__full-description">
         {{ postData.post.value.fullDescription }}
       </p>
-      <FullDescription v-else v-model="postData.post.value.fullDescription" />
+      <FullDescription
+        v-else
+        v-model="postData.post.value.fullDescription"
+        :maxlength="255"
+      />
       <p class="post__date">{{ normalizeDate(postData.post.value.date) }}</p>
       <div class="post__buttons">
         <button
@@ -71,14 +79,14 @@ const { postData, isCorrectPostData, editMode } = usePostData(props.id);
 
 <style>
 .post-page {
-  gap: 64px;
+  gap: calc(var(--base) * 0.64);
 }
 
 .post {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 16px;
+  gap: calc(var(--base) * 0.16);
 }
 
 .post__short-description,
@@ -89,20 +97,20 @@ const { postData, isCorrectPostData, editMode } = usePostData(props.id);
 }
 
 .post__date {
-  font-size: 16px;
+  font-size: calc(var(--base) * 0.16);
 }
 
 .post__buttons {
   display: flex;
-  gap: 16px;
+  gap: calc(var(--base) * 0.16);
 }
 
 .comments {
   display: flex;
   justify-content: space-between;
-  gap: 16px;
-  border-top: 1px solid black;
-  padding: 16px 8px 0px;
-  border-radius: 16px;
+  gap: calc(var(--base) * 0.16);
+  border-top: calc(var(--base) * 0.01) solid black;
+  padding: calc(var(--base) * 0.16) calc(var(--base) * 0.08) 0px;
+  border-radius: calc(var(--base) * 0.16);
 }
 </style>

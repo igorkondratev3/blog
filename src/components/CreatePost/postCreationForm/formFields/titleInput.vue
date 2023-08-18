@@ -1,6 +1,9 @@
 <script setup>
+import RemaingCharacters from "./remaingCharacters.vue";
+
 defineProps({
   value: String,
+  maxlength: Number,
 });
 
 defineEmits(["input"]);
@@ -12,12 +15,13 @@ defineEmits(["input"]);
     <input
       type="text"
       class="post-title__value"
-      maxlength="50"
+      :maxlength="maxlength"
       required
       v-bind="$attrs"
       :value="value"
       @input="$emit('input', $event.target.value)"
     />
+    <RemaingCharacters :value="value" :maxlength="maxlength" />
   </label>
 </template>
 
@@ -38,6 +42,7 @@ defineEmits(["input"]);
   color: inherit;
   background-color: white;
 }
+
 .post-title__value:focus-visible {
   outline: calc(var(--base) * 0.01) solid black;
 }

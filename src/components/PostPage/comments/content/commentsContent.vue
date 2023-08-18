@@ -39,29 +39,29 @@ defineEmits(["deleteComment"]);
 .comments-content {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: calc(var(--base) * 0.16);
 }
 
 .comments-content__comment {
   display: flex;
   flex-direction: column;
-  max-width: 500px;
-  font-size: 16px;
+  max-width: calc(var(--base) * 5);
+  font-size: calc(var(--base) * 0.16);
 }
 
 .comment__user-information {
   display: flex;
-  gap: 8px;
-  margin: 0px 4px;
+  gap: calc(var(--base) * 0.08);
+  margin: 0px calc(var(--base) * 0.04);
   overflow-wrap: anywhere;
   word-break: break-all;
 }
 
 .comment__value {
-  width: 500px;
-  padding: 8px;
-  border: 1px solid black;
-  border-radius: 8px;
+  width: calc(var(--base) * 5);
+  padding: calc(var(--base) * 0.08);
+  border: calc(var(--base) * 0.01) solid black;
+  border-radius: calc(var(--base) * 0.08);
   overflow-wrap: anywhere;
   word-break: break-all;
   white-space: pre-line;
@@ -69,20 +69,27 @@ defineEmits(["deleteComment"]);
 
 .comment__date {
   align-self: flex-end;
-  margin-right: 4px;
+  margin-right: calc(var(--base) * 0.04);
 }
 
 .comment__delete {
   position: absolute;
   bottom: 0;
-  left: 4px;
+  left: calc(var(--base) * 0.04);
   border: none;
+  outline: none;
   cursor: pointer;
   background-color: transparent;
 }
 
+.comment__delete:focus-visible {
+  border-radius: 4px;
+  outline: calc(var(--base) * 0.01) solid black;
+}
+
 .icon16 {
-  width: 16px;
-  height: 16px;
+  display: block;
+  width: calc(var(--base) * 0.16);
+  height: calc(var(--base) * 0.16);
 }
 </style>

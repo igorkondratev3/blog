@@ -41,7 +41,7 @@ body {
   font: inherit;
   letter-spacing: inherit;
   color: inherit;
-  font-size: 16px;
+  font-size: calc(var(--base) * 0.16);
   cursor: default;
   text-align: center;
   background-color: transparent;
@@ -69,18 +69,22 @@ body {
 }
 
 h1 {
-  font-size: 48px;
+  font-size: calc(var(--base) * 0.48);
 }
 
 h2 {
-  font-size: 40px;
+  font-size: calc(var(--base) * 0.4);
+}
+
+h3 {
+  font-size: alc(var(--base) * 0.32);
 }
 
 h4 {
-  font-size: 28px;
+  font-size: calc(var(--base) * 0.28);
 }
 
 h5 {
-  font-size: 24px;
+  font-size: calc(var(--base) * 0.24);
   font-weight: 400;
 }

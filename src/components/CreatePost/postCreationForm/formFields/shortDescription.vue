@@ -1,6 +1,9 @@
 <script setup>
+import RemaingCharacters from "./remaingCharacters.vue";
+
 defineProps({
   value: String,
+  maxlength: Number,
 });
 
 defineEmits(["input"]);
@@ -11,17 +14,18 @@ defineEmits(["input"]);
     <h5 class="short-post-description__header">Краткое описание</h5>
     <textarea
       class="short-post-description__value"
-      maxlength="100"
+      :maxlength="maxlength"
       required
       v-bind="$attrs"
       :value="value"
       @input="$emit('input', $event.target.value)"
     ></textarea>
+    <RemaingCharacters :value="value" :maxlength="maxlength" />
   </label>
 </template>
 
 <style>
-.short-post-description__header {
+.short-post-description {
   display: flex;
   flex-direction: column;
 }
@@ -39,6 +43,7 @@ defineEmits(["input"]);
   color: inherit;
   background-color: white;
 }
+
 .short-post-description__value:focus-visible {
   outline: calc(var(--base) * 0.01) solid black;
 }

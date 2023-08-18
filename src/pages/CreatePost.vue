@@ -12,6 +12,6 @@ import TheHeader from "@/components/common/TheHeader.vue";
 
 <style>
 .create-post {
-  gap: 64px;
+  gap: calc(var(--base) * 0.64);
 }
 </style>

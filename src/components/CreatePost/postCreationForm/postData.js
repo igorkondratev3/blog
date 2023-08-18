@@ -9,8 +9,8 @@ export const usePostData = () => {
 
   const isCorrectPostData = computed(
     () =>
-      Boolean(postData.title.value) &&
-      Boolean(postData.shortDescription.value) &&
+      postData.title.value.trim().length > 0 &&
+      postData.shortDescription.value.trim().length > 0 &&
       postData.title.value.length <= 50 &&
       postData.shortDescription.value.length <= 100 &&
       postData.fullDescription.value.length <= 255

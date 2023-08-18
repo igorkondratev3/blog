@@ -8,7 +8,7 @@ const posts = JSON.parse(localStorage.getItem("posts"));
 <template>
   <div class="start-page page">
     <StartPageHeader />
-    <main class="posts">
+    <main class="posts" v-if="posts">
       <PostCard
         v-for="(post, index) in posts.toReversed()"
         :key="`${index} post`"
@@ -16,17 +16,24 @@ const posts = JSON.parse(localStorage.getItem("posts"));
         :postId="posts.length - index - 1"
       />
     </main>
+    <div v-else class="start-page__empty">Записи отсутствуют</div>
   </div>
 </template>
 
 <style>
 .start-page {
-  gap: 32px;
+  gap: calc(var(--base) * 0.32);
 }
 .posts {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
-  gap: 32px;
+  gap: calc(var(--base) * 0.32);
+}
+
+.start-page__empty {
+  align-self: center;
+  margin-top: 64px;
+  font-size: 80px;
 }
 </style>

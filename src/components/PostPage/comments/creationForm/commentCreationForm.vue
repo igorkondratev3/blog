@@ -56,8 +56,8 @@ const { commentData, isCorrectCommentData, isCorrectEmail } = useCommentData();
   display: flex;
   flex-direction: column;
   align-self: flex-start;
-  gap: 16px;
-  margin-top: 64px;
+  gap: calc(var(--base) * 0.16);
+  margin-top: calc(var(--base) * 0.64);
 }
 
 .comment-creation-form__input {
@@ -67,7 +67,7 @@ const { commentData, isCorrectCommentData, isCorrectEmail } = useCommentData();
   border: calc(var(--base) * 0.01) solid transparent;
   border-radius: calc(var(--base) * 0.04);
   font: inherit;
-  font-size: 20px;
+  font-size: calc(var(--base) * 0.2);
   letter-spacing: inherit;
   color: inherit;
   background-color: white;
@@ -87,7 +87,7 @@ const { commentData, isCorrectCommentData, isCorrectEmail } = useCommentData();
   border: calc(var(--base) * 0.01) solid transparent;
   border-radius: calc(var(--base) * 0.04);
   font: inherit;
-  font-size: 20px;
+  font-size: calc(var(--base) * 0.2);
   letter-spacing: inherit;
   color: inherit;
   background-color: white;
@@ -99,14 +99,14 @@ const { commentData, isCorrectCommentData, isCorrectEmail } = useCommentData();
 
 .comment-creation-form__create {
   display: flex;
-  gap: 8px;
+  gap: calc(var(--base) * 0.08);
 }
 
 .email-clue {
   padding: calc(var(--base) * 0.08);
   border-radius: calc(var(--base) * 0.08);
   background-color: rgb(221, 100, 100);
-  font-size: 16px;
+  font-size: calc(var(--base) * 0.16);
   color: white;
 }
 </style>

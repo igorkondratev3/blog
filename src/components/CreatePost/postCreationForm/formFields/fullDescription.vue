@@ -1,6 +1,9 @@
 <script setup>
+import RemaingCharacters from "./remaingCharacters.vue";
+
 defineProps({
   value: String,
+  maxlength: Number,
 });
 
 defineEmits(["input"]);
@@ -11,11 +14,12 @@ defineEmits(["input"]);
     <h5 class="full-post-description__header">Полное описание</h5>
     <textarea
       class="full-post-description__value"
-      maxlength="255"
+      :maxlength="maxlength"
       v-bind="$attrs"
       :value="value"
       @input="$emit('input', $event.target.value)"
     ></textarea>
+    <RemaingCharacters :value="value" :maxlength="maxlength" />
   </label>
 </template>
 

@@ -30,8 +30,9 @@ defineProps({
 <style>
 .post-link {
   width: 30vw;
-  height: 300px;
+  height: calc(var(--base) * 3);
   color: inherit;
+  outline: none;
   text-decoration: none;
   transition: transform 0.2s linear;
 }
@@ -40,15 +41,19 @@ defineProps({
   transform: scale(1.03);
 }
 
+.post-link:focus-visible {
+  transform: scale(1.03);
+}
+
 .post-card {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 16px;
+  gap: calc(var(--base) * 0.16);
   height: 100%;
-  border: 1px solid black;
-  border-radius: 16px;
-  padding: 16px;
+  border: calc(var(--base) * 0.01) solid black;
+  border-radius: calc(var(--base) * 0.16);
+  padding: calc(var(--base) * 0.16);
   overflow-y: auto;
 }
 
@@ -71,11 +76,11 @@ defineProps({
 .post-card__content {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: calc(var(--base) * 0.16);
 }
 
 .post-card__title {
-  font-size: 32px;
+  font-size: calc(var(--base) * 0.32);
   overflow-wrap: anywhere;
   word-break: break-all;
 }
@@ -89,12 +94,12 @@ defineProps({
 .post-card__info {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: calc(var(--base) * 0.08);
 }
 
 .post-card__comments,
 .post-card__date {
   align-self: flex-end;
-  font-size: 20px;
+  font-size: calc(var(--base) * 0.2);
 }
 </style>
