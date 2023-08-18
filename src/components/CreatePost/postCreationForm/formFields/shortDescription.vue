@@ -47,4 +47,18 @@ defineEmits(["input"]);
 .short-post-description__value:focus-visible {
   outline: calc(var(--base) * 0.01) solid black;
 }
+
+@media (max-width: 800px) {
+  .short-post-description__value {
+    max-width: calc(var(--base) * 5.5);
+    min-width: calc(var(--base) * 5.5);
+  }
+}
+
+@media (max-width: 600px) {
+  .short-post-description__value {
+    max-width: calc(var(--base) * 3.5);
+    min-width: calc(var(--base) * 3.5);
+  }
+}
 </style>

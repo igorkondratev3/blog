@@ -68,11 +68,14 @@ const { postData, isCorrectPostData, editMode } = usePostData(props.id);
       </div>
     </article>
     <div class="comments">
-      <CommentsContent
-        :comments="postData.post.value.comments"
-        @deleteComment="postData.deleteComment"
-      />
-      <CommentCreationForm @addCommentInPost="postData.addComment" />
+      <h4 class="comments__header">Комментарии</h4>
+      <div class="comments__wrapper">
+        <CommentsContent
+          :comments="postData.post.value.comments"
+          @deleteComment="postData.deleteComment"
+        />
+        <CommentCreationForm @addCommentInPost="postData.addComment" />
+      </div>
     </div>
   </div>
 </template>
@@ -89,9 +92,10 @@ const { postData, isCorrectPostData, editMode } = usePostData(props.id);
   gap: calc(var(--base) * 0.16);
 }
 
+.post__title,
 .post__short-description,
 .post__full-description {
-  word-wrap: break-word;
+  overflow-wrap: anywhere;
   word-break: break-all;
   white-space: pre-line;
 }
@@ -107,10 +111,23 @@ const { postData, isCorrectPostData, editMode } = usePostData(props.id);
 
 .comments {
   display: flex;
+  flex-direction: column;
+  padding: calc(var(--base) * 0.16) calc(var(--base) * 0.08) 0px;
+  border-top: calc(var(--base) * 0.01) solid black;
+  border-radius: calc(var(--base) * 0.16);
+  gap: calc(var(--base) * 0.16);
+}
+
+.comments__wrapper {
+  display: flex;
   justify-content: space-between;
   gap: calc(var(--base) * 0.16);
-  border-top: calc(var(--base) * 0.01) solid black;
-  padding: calc(var(--base) * 0.16) calc(var(--base) * 0.08) 0px;
-  border-radius: calc(var(--base) * 0.16);
+}
+
+@media (max-width: 920px) {
+  .comments__wrapper {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
 }
 </style>

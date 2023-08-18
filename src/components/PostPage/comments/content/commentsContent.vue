@@ -9,7 +9,6 @@ defineEmits(["deleteComment"]);
 
 <template>
   <div class="comments-content">
-    <h4 class="comments-content__header">Комментарии</h4>
     <div
       class="comments-content__comment comment"
       v-for="(comment, index) of comments.toReversed()"
@@ -83,7 +82,7 @@ defineEmits(["deleteComment"]);
 }
 
 .comment__delete:focus-visible {
-  border-radius: 4px;
+  border-radius: calc(var(--base) * 0.04);
   outline: calc(var(--base) * 0.01) solid black;
 }
 
@@ -91,5 +90,15 @@ defineEmits(["deleteComment"]);
   display: block;
   width: calc(var(--base) * 0.16);
   height: calc(var(--base) * 0.16);
+}
+
+@media (max-width: 555px) {
+  .comments-content__comment {
+    max-width: calc(var(--base) * 3.4);
+  }
+
+  .comment__value {
+    width: calc(var(--base) * 3.4);
+  }
 }
 </style>

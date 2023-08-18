@@ -21,4 +21,10 @@ import { RouterLink } from "vue-router";
   align-items: center;
   background-color: rgb(232, 238, 233);
 }
+
+@media (max-width: 500px) {
+  .header__value {
+    font-size: calc(var(--base) * 0.36);
+  }
+}
 </style>

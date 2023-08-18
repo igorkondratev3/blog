@@ -19,4 +19,10 @@ defineProps({
   justify-content: space-between;
   align-items: center;
 }
+
+@media (max-width: 500px) {
+  .header__value {
+    font-size: calc(var(--base) * 0.36);
+  }
+}
 </style>

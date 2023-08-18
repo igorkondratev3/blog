@@ -46,4 +46,16 @@ defineEmits(["input"]);
 .post-title__value:focus-visible {
   outline: calc(var(--base) * 0.01) solid black;
 }
+
+@media (max-width: 800px) {
+  .post-title__value {
+    width: calc(var(--base) * 5.5);
+  }
+}
+
+@media (max-width: 600px) {
+  .post-title__value {
+    width: calc(var(--base) * 3.5);
+  }
+}
 </style>

@@ -24,6 +24,7 @@ const posts = JSON.parse(localStorage.getItem("posts"));
 .start-page {
   gap: calc(var(--base) * 0.32);
 }
+
 .posts {
   display: flex;
   flex-wrap: wrap;
@@ -33,7 +34,13 @@ const posts = JSON.parse(localStorage.getItem("posts"));
 
 .start-page__empty {
   align-self: center;
-  margin-top: 64px;
-  font-size: 80px;
+  margin-top: calc(var(--base) * 0.64);
+  font-size: calc(var(--base) * 0.8);
+}
+
+@media (max-width: 1355px) {
+  .posts {
+    justify-content: space-around;
+  }
 }
 </style>

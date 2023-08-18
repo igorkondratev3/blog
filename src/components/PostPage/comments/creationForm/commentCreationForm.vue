@@ -57,7 +57,7 @@ const { commentData, isCorrectCommentData, isCorrectEmail } = useCommentData();
   flex-direction: column;
   align-self: flex-start;
   gap: calc(var(--base) * 0.16);
-  margin-top: calc(var(--base) * 0.64);
+  margin-top: calc(var(--base) * 0.16);
 }
 
 .comment-creation-form__input {
@@ -108,5 +108,22 @@ const { commentData, isCorrectCommentData, isCorrectEmail } = useCommentData();
   background-color: rgb(221, 100, 100);
   font-size: calc(var(--base) * 0.16);
   color: white;
+}
+
+@media (max-width: 1310px) {
+  .comment-creation-form__input {
+    width: calc(var(--base) * 3.4);
+  }
+
+  .comment-creation-form__content {
+    min-width: calc(var(--base) * 3.4);
+    max-width: calc(var(--base) * 3.4);
+  }
+}
+
+@media (max-width: 920px) {
+  .comment-creation-form {
+    order: -1;
+  }
 }
 </style>

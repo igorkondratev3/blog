@@ -18,7 +18,7 @@ const remaingCharacters = computed(() => props.maxlength - props.value.length);
 <style>
 .remaing-characters {
   align-self: flex-end;
-  font-size: 16px;
+  font-size: calc(var(--base) * 0.16);
   color: gray;
 }
 </style>

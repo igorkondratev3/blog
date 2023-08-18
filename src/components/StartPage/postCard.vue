@@ -30,6 +30,7 @@ defineProps({
 <style>
 .post-link {
   width: 30vw;
+  min-width: calc(var(--base) * 4.2);
   height: calc(var(--base) * 3);
   color: inherit;
   outline: none;
@@ -101,5 +102,11 @@ defineProps({
 .post-card__date {
   align-self: flex-end;
   font-size: calc(var(--base) * 0.2);
+}
+
+@media (max-width: 460px) {
+  .post-link {
+    min-width: calc(var(--base) * 3.4);
+  }
 }
 </style>
